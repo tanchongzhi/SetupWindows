@@ -1,0 +1,9 @@
+# PowerShell: UTF-16LE with BOM, CRLF
+*.ps1    text eol=crlf working-tree-encoding=UTF-16LE-BOM
+*.psm1   text eol=crlf working-tree-encoding=UTF-16LE-BOM
+*.psd1   text eol=crlf working-tree-encoding=UTF-16LE-BOM
+*.ps1xml text eol=crlf working-tree-encoding=UTF-16LE-BOM
+
+# CMD / BAT: UTF-8 without BOM, CRLF
+*.cmd    text eol=crlf
+*.bat    text eol=crlf

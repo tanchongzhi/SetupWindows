@@ -1,0 +1,9 @@
+root = true
+
+[*.{ps1,psm1,psd1,ps1xml}]
+charset = utf-16le
+end_of_line = crlf
+
+[*.{cmd,bat}]
+charset = utf-8
+end_of_line = crlf
