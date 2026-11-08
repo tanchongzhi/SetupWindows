@@ -43,3 +43,19 @@ try {
 
 Write-Host 'Setting up the default WSL version: 2'
 wsl --set-default-version 2
+
+if (-not ('WindowsNativeMethods.IniWriter' -as [type])) {
+    Add-Type -Namespace WindowsNativeMethods -Name IniWriter -MemberDefinition @'
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+    public static extern bool WritePrivateProfileString(
+        string section,
+        string key,
+        string value,
+        string filePath
+    );
+}
+'@
+}
+
+Write-Host 'Disabling telemetry...'
+$null = [WindowsNativeMethods.IniWriter]::WritePrivateProfileString('wsl2', 'telemetry', 'false', "$env:USERPROFILE\.wslconfig")
