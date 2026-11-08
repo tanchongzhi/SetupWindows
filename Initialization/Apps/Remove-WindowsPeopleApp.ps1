@@ -4,7 +4,8 @@ $osVersion = [System.Environment]::OSVersion.Version
 
 if ($osVersion.Major -eq 10) {
     $settingKeys = @(
-        'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People'
+        'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People',
+        'HKCU:\Software\Policies\Microsoft\Windows\Explorer'
     )
     $settingKeys | ForEach-Object { (Test-Path -Path $_) -or (New-Item -Path $_ -Force) } | Out-Null
 
